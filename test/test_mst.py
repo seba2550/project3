@@ -32,7 +32,8 @@ def check_mst(adj_mat: np.ndarray,
         for j in range(i+1):
             total += mst[i, j]
     assert approx_equal(total, expected_weight), 'Proposed MST has incorrect expected weight'
-
+    assert approx_equal(mst.shape[0], adj_mat.shape[0]), 'Number of edges in MST surpasses dimensions of original graph' # MST should hold n-1 edges, where n is the number of vertices. Otherwise it does not fit the dimensions of the original graph  
+    assert approx_equal(mst.shape[0], mst.shape[1]), 'The proposed MST is not symmetrical'
 
 def test_mst_small():
     """ Unit test for the construction of a minimum spanning tree on a small graph """
@@ -59,4 +60,12 @@ def test_mst_single_cell_data():
 
 def test_mst_student():
     """ TODO: Write at least one unit test for MST construction """
-    pass
+    test_mat = np.array([[1, 2, 1, 6, 7],
+                        [2, 4, 3, 8, 5],
+                        [1, 3, 9, 1, 7],
+                        [6, 8, 5, 1, 9],
+                        [7, 5, 7, 9, 2]])
+
+    test_mat_graph = Graph(test_mat)
+    test_mat_graph.construct_mst()
+    check_mst(test_mat_graph.adj_mat, test_mat_graph.mst, 10)

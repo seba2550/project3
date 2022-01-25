@@ -1,3 +1,6 @@
+![BuildStatus](https://github.com/seba2550/project3/actions/workflows/test.yml/badge.svg)
+
+
 # Project 3
 Minimum Spanning Trees
 
