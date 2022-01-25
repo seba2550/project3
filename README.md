@@ -1,4 +1,4 @@
-![BuildStatus](https://github.com/seba2550/project3/actions/workflows/test.yml/badge.svg)
+![BuildStatus](https://github.com/seba2550/project3/actions/workflows/pytest.yml/badge.svg)
 
 
 # Project 3
